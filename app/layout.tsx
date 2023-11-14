@@ -1,8 +1,10 @@
 import type { Metadata } from "next"
 
 import "./ui/globals.css"
-import Navbar from "./ui/navbar"
+import Navbar from "./ui/nav/navbar"
 import { josefin } from "./ui/font"
+import StyledComponentsRegistry from "./lib/registry"
+import { Providers } from "./ui/styles"
 
 export const metadata: Metadata = {
   title: {
@@ -18,10 +20,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr">
+    <html lang="fr" suppressHydrationWarning>
       <body className={josefin.className}>
-        <Navbar />
-        {children}
+        {/* <Navbar /> */}
+        <Providers>{children}</Providers>
       </body>
     </html>
   )
