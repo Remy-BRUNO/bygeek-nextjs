@@ -3,7 +3,7 @@
 import { ThemeProvider } from "next-themes"
 import Navbar from "./nav/navbar"
 
-export function Providers({ children }) {
+export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider>
       <Navbar />
