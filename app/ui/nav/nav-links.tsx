@@ -1,27 +1,29 @@
 "use client"
+import style from "./nav.module.css"
 
+import clsx from "clsx"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import styled from "styled-components"
-
-const LinkStyled = styled(Link)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-`
 
 export default function NavLinks() {
   const pathname = usePathname()
+
   return (
     <>
-      <LinkStyled href="/">
+      <Link href="/">
         <Image src="/logo.svg" width={100} height={100} alt="Logo" priority />
-      </LinkStyled>
-      <LinkStyled href="/">home</LinkStyled>
-      <LinkStyled href="/">Articles</LinkStyled>
-      <LinkStyled href="/login">Login</LinkStyled>
+      </Link>
+      <Link className={clsx({ [style.active]: pathname === "/" })} href="/">
+        Home
+      </Link>
+
+      <Link
+        className={clsx({ [style.active]: pathname === "/login" })}
+        href="/login"
+      >
+        Login
+      </Link>
     </>
   )
 }
