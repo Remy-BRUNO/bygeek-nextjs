@@ -3,12 +3,24 @@ import Image from "next/image"
 import Link from "next/link"
 import { useFormStatus } from "react-dom"
 
-export default function LoginForm() {
+export default function RegisterForm() {
   const { pending } = useFormStatus()
 
   return (
     <form className="form-box">
-      <h2>Login</h2>
+      <h2>Inscription</h2>
+      <div className="inputbox">
+        <Image
+          src="/username.png"
+          alt="username"
+          width={32}
+          height={32}
+          className="img"
+        />
+
+        <input type="text" name="name" id="name" required />
+        <label htmlFor="name">Nom</label>
+      </div>
       <div className="inputbox">
         <Image
           src="/email.png"
@@ -19,9 +31,7 @@ export default function LoginForm() {
         />
 
         <input type="email" name="email" id="email" required />
-        <label htmlFor="email" className="label">
-          Email
-        </label>
+        <label htmlFor="email">Email</label>
       </div>
       <div className="inputbox">
         <Image
@@ -36,12 +46,11 @@ export default function LoginForm() {
         <label htmlFor="password">Mot de passe</label>
       </div>
       <button type="submit" className="btnSubmit" aria-disabled={pending}>
-        Connexion
+        S&apos;inscrire
       </button>
       <div className="register">
         <p>
-          Vous n&apos;etes pas membre?{" "}
-          <Link href="/register"> S&apos;inscrire</Link>
+          Vous etes déjà membre? <Link href="/login"> Se connecter</Link>
         </p>
       </div>
     </form>

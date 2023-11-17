@@ -19,7 +19,9 @@ export default function NavLinks() {
       </Link>
 
       <Link
-        className={clsx({ [style.active]: pathname === "/login" })}
+        className={clsx({
+          [style.active]: pathname === "/login" || "/register",
+        })}
         href="/login"
       >
         Login
