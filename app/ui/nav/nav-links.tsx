@@ -17,10 +17,16 @@ export default function NavLinks() {
       <Link className={clsx({ [style.active]: pathname === "/" })} href="/">
         Home
       </Link>
+      <Link
+        className={clsx({ [style.active]: pathname === "/dashboard" })}
+        href="/dashboard"
+      >
+        Articles
+      </Link>
 
       <Link
         className={clsx({
-          [style.active]: pathname === "/login" || "/register",
+          [style.active]: pathname === "/login" || pathname === "/register",
         })}
         href="/login"
       >

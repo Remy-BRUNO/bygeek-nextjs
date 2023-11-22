@@ -1,0 +1,43 @@
+.form {
+  margin: 1rem;
+  padding: 1rem;
+  border: 2px solid #625d5d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  gap: 1rem;
+}
+
+.inputs {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+.input {
+  width: 100%;
+  height: 2rem;
+  border-radius: 4px;
+}
+.inputTextarea {
+  width: 100%;
+  height: 5rem;
+  border-radius: 4px;
+}
+.inputUpload {
+  display: none;
+}
+.customFileUpload {
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: rgb(144, 144, 144);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}

@@ -32,7 +32,7 @@ export default function LoginForm() {
           className="img"
         />
 
-        <input type="password" name="password" id="password" />
+        <input type="password" name="password" id="password" required />
         <label htmlFor="password">Mot de passe</label>
       </div>
       <button type="submit" className="btnSubmit" aria-disabled={pending}>

@@ -4,49 +4,43 @@ import Image from "next/image"
 export default function Card({
   title,
   image,
+  support,
+  univer,
+  date,
   description,
+  color,
 }: {
   title: string
   image: string
+  support: string
+  univer: string
+  date: string
   description: string
+  color: string
 }) {
-  // return (
-  //   <div>
-  //     <h3>{title} </h3>
-  //     <Image src={image} alt="" width={450} height={400} className="img" />
-  //     <p style={{ backgroundImage: `url(${image})` }}>{description}</p>
-  //   </div>
-  // )
-
   return (
-    <div className="card-container">
-      <div className="card" id="hulk">
-        <div className="card-image">
-          <Image
-            alt=""
-            src="https://res.cloudinary.com/dsgvp2wmj/image/upload/v1636769866/466-4665707_hulk-png-avengers-earths-mightiest-heroes-hulk-transparent-removebg-preview_hxdclj.png"
-            width={375}
-            height={275}
-          />
-        </div>
-        <div className="card-text">
-          <h2>MARVEL</h2>
-          <p>{title}</p>
-
-          <div>
+    <div className="card-inner">
+      <div className="card-flip">
+        <div className="card" id="card">
+          <div className="card-image" style={{ backgroundColor: `${color}` }}>
+            <Image alt={title} src={image} width={370} height={270} />
+          </div>
+          <div className="card-text">
+            <h2 className="title">{title}</h2>
+            <h2 className="univer">{univer}</h2>
             <div>
-              {/* <span>15</span>
-                <span>&cent;</span> */}
-            </div>
-            <div>
-              <span>27</span>
-              <span>May</span>
+              <div>
+                <span>{support}</span>
+              </div>
+              <div>
+                <span>{date}</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="card card-info">
-        <p>{description}</p>
+        <div className="card-info">
+          <p>{description}</p>
+        </div>
       </div>
     </div>
   )

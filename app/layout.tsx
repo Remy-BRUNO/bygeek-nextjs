@@ -22,7 +22,6 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning>
       <body className={josefin.className}>
-        {/* <Navbar /> */}
         <Providers>{children}</Providers>
       </body>
     </html>
