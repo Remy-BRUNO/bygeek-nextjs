@@ -7,7 +7,7 @@ import { redirect } from "next/navigation"
 
 const Schema = z.object({
   title: z.string(),
-  file: z.any(),
+  file: z.string(),
   univer: z.string(),
   support: z.string(),
   date: z.string(),
@@ -30,19 +30,18 @@ export const uploadFile = async (formData: FormData) => {
 // creer un article
 export async function create(formData: FormData, url: string) {
   const data = Object.fromEntries(formData)
+  data.file = url
+  console.log(data)
   const result = Schema.parse(data)
-  result.file = url
-  console.log(result)
   const { title, file, univer, support, date, description, color } = result
-  console.log(sql)
   try {
     if (result!) {
       throw new Error("Tout les champs doivent etre remplis")
     }
     await sql`INSERT INTO articles (title,file,univer,support,date,description,color,user_id) VALUES (${title},${file},${univer},${support},${date},${description},${color},1)`
+    revalidatePath("/dashboard")
+    redirect("/dashboard")
   } catch (error) {
     return { message: "article non ajouté" }
   }
-  revalidatePath("/dashboard")
-  redirect("/dashboard")
 }
